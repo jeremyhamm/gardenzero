@@ -1,2 +1,2 @@
-# garden-zero
-Functionality for managing your garden with the Raspberry Pi Zero
+# Garden Zero
+Manage your garden with the Raspberry Pi Zero
