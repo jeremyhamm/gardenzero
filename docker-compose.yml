@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  batteries:
+    container_name: batteries 
+    build:
+      context: .
+      dockerfile: ./batteries/Dockerfile
+    volumes:
+      - ./batteries:/batteries
+    networks:
+      - garden-zero
+
+networks:
+  garden-zero:
+    name: garden-zero
