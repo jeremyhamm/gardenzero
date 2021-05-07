@@ -4,7 +4,6 @@ from ina219 import DeviceRangeError
 
 SHUNT_OHMS = 0.1
 
-
 def read():
   ina = INA219(SHUNT_OHMS)
   ina.configure()
