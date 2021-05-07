@@ -1,34 +1,26 @@
-from ina219 import INA219, DeviceRangeError
-from time import sleep
+#!/usr/bin/env python
+from ina219 import INA219
+from ina219 import DeviceRangeError
 
-SHUNT_OHM = 0.1
-MAXCURRENT = 0.4
-
-#ina = INA219(SHUNT_OHM, MAXCURRENT)
-ina = INA219(SHUNT_OHM)
-
-#ina.configure(ina.RANGE_16V, ina.GAIN_1_40MV)
-ina.configure(ina.RANGE_16V, ina.GAIN_AUTO)
-#ina.configure()
+SHUNT_OHMS = 0.1
 
 
-def read_ina219():
-  #ina = INA219(SHUNT_OHM)
-  #ina.configure(ina.RANGE_16V, ina.GAIN_AUTO)
+def read():
+  ina = INA219(SHUNT_OHMS)
+  ina.configure()
+
+  print("Bus Voltage: %.3f V" % ina.voltage())
   try:
-    Uges = ina.voltage() + ina.shunt_voltage()/1000
-    
-    spannung = round(ina.voltage(), 3)
-    strom = ina.current()
-    leistung =round(ina.power(), 3)
-    supply = round(ina.supply_voltage(), 3)
-    shuntV = round(ina.shunt_voltage(), 3)
-    
-    print(str(spannung) + "V " + str(strom) + "mA " + str(leistung) + "mW  | supply: " + str(supply) + "V  | shunt: " + str(shuntV) + "mV  | Uges: " + str(Uges) + "V")
-      
+    print("Bus Current: %.3f mA" % ina.current())
+    print("Power: %.3f mW" % ina.power())
+    print("Shunt voltage: %.3f mV" % ina.shunt_voltage())
   except DeviceRangeError as e:
-    print("too high")
-  
+    # Current out of device range with specified shunt resistor
+    print(e)
+
+
+if __name__ == "__main__":
+  read()
   
 while 1:
   read_ina219()
