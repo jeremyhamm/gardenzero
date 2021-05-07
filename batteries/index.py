@@ -2,10 +2,12 @@
 from ina219 import INA219
 from ina219 import DeviceRangeError
 
-SHUNT_OHMS = 0.1
+shunt_ohms = 0.1
+max_expected_amps = 0.6,
+address=0x40
 
 def read():
-  ina = INA219(SHUNT_OHMS)
+  ina = INA219(shunt_ohms, max_expected_amps, address)
   ina.configure()
 
   print("Bus Voltage: %.3f V" % ina.voltage())
