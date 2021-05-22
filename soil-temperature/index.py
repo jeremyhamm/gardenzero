@@ -35,10 +35,11 @@ class DS18B20(object):
       temp_line = lines[1]
       equal_pos = temp_line.find("t=")            
       if equal_pos != -1:
-          temp_string = temp_line[equal_pos+2:]
-          temp_c = float(temp_string)/1000.0
+        temp_string = temp_line[equal_pos+2:]
+        temp_c = float(temp_string)/1000.0
+        temp_f = (temp_c * 1.8) + 32
     
-    return temp_c
+    return temp_f
 
 if __name__ == "__main__":
   obj = DS18B20()
