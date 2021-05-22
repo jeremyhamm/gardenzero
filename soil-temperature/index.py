@@ -1,8 +1,10 @@
 #!/usr/bin/python3
+import sys
 import os
 import glob
 import time
-from services import mqtt
+sys.path.append(os.path.abspath('../services'))
+import mqtt
 
 class DS18B20(object):
   def __init__(self):        
