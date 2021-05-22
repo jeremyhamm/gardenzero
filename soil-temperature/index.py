@@ -2,7 +2,7 @@
 import os
 import glob
 import time
-from services.mqtt import getConnection
+from ..services import mqtt
 
 class DS18B20(object):
   def __init__(self):        
@@ -19,7 +19,7 @@ class DS18B20(object):
       
   def read_temp(self):
     
-    getConnection()
+    mqtt.getConnection()
     
     temp_c = -255
     attempts = 0
