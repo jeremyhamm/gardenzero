@@ -2,7 +2,7 @@
 import os
 import glob
 import time
-from ..services import mqtt
+from services import mqtt
 
 class DS18B20(object):
   def __init__(self):        
