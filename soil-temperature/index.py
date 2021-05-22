@@ -2,7 +2,7 @@
 import os
 import glob
 import time
-
+from services.mqtt import getConnection
 
 class DS18B20(object):
   def __init__(self):        
@@ -18,6 +18,9 @@ class DS18B20(object):
     return lines[0].strip()[-3:] == "YES"
       
   def read_temp(self):
+    
+    getConnection()
+    
     temp_c = -255
     attempts = 0
     
