@@ -1,5 +1,6 @@
 import paho.mqtt.client as mqtt
 from dotenv import load_dotenv
+import os
 
 def loadEnv():
   #dotenv_path = join(dirname(__file__), '.env')
