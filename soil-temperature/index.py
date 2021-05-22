@@ -37,10 +37,10 @@ class DS18B20(object):
       if equal_pos != -1:
         temp_string = temp_line[equal_pos+2:]
         temp_c = float(temp_string)/1000.0
-        temp_f = (temp_c * 1.8) + 32
+        temp_f = round((temp_c * 1.8) + 32, 1)
     
     return temp_f
 
 if __name__ == "__main__":
   obj = DS18B20()
-  print("Temp: %s C" % obj.read_temp())
+  print("Temp: %s F" % obj.read_temp())
