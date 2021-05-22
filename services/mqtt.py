@@ -11,7 +11,9 @@ def getClient():
 def authenticate():
   loadEnv()
 
-  print(os.environ.get("MQTT_BROKER_PORT"))
+  token = os.environ.get("MQTT_BROKER_PORT")
+
+  print(token)
   
   client = getClient()
   client.username_pw_set("", "")
