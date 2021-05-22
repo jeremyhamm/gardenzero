@@ -17,3 +17,5 @@ def authenticate():
   
   client = getClient()
   client.username_pw_set("", "")
+
+authenticate()
