@@ -2,7 +2,7 @@
 import os
 import glob
 import time
-from ..services.mqtt import getConnection
+from services.mqtt import getConnection
 
 class DS18B20(object):
   def __init__(self):        
