@@ -21,7 +21,7 @@ class DS18B20(object):
       
   def read_temp(self):
     
-    mqtt.getConnection()
+    mqtt.get_connection()
     
     temp_c = -255
     attempts = 0
