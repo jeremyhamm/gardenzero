@@ -18,6 +18,6 @@ def getConnection():
   
   client = getClient()
   client.username_pw_set(username, password)
-  client.connect('http://192.168.1.151')
+  client.connect('192.168.1.151')
 
   return client
