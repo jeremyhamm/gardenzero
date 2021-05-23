@@ -1,4 +1,10 @@
 #!/usr/bin/python3
+
+"""
+
+https://projects.raspberrypi.org/en/projects/build-your-own-weather-station/2
+"""
+
 import sys
 import os
 import glob
