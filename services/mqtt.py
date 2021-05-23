@@ -8,6 +8,12 @@ def load_env():
 def get_client():
   return mqtt.Client()
 
+def on_connect(client, userdata, flags, rc):
+  if rc==0:
+    print("connected OK Returned code=",rc)
+  else:
+    print("Bad connection Returned code=",rc)
+
 def get_connection():
   load_env()
 
@@ -21,9 +27,3 @@ def get_connection():
   client.connect(host)
 
   return client
-
-def on_connect(client, userdata, flags, rc):
-  if rc==0:
-      print("connected OK Returned code=",rc)
-  else:
-      print("Bad connection Returned code=",rc)
