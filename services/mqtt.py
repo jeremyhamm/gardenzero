@@ -14,10 +14,9 @@ def getConnection():
   username = os.environ.get("MQTT_USER")
   password = os.environ.get("MQTT_PASSWORD")
   host = os.environ.get("MQTT_BROKER_HOST")
-  port = os.environ.get("MQTT_BROKER_PORT")
   
   client = getClient()
   client.username_pw_set(username, password)
-  client.connect('192.168.1.151')
+  client.connect(host)
 
   return client
