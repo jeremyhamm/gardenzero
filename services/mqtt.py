@@ -11,9 +11,9 @@ def get_client():
 
 def on_connect(client, userdata, flags, rc):
   if rc==0:
-    print("Good connection")
+    print("Good MQTT connection")
   else:
-    print("Bad connection")
+    print("Bad MQTT connection")
 
 def get_connection():
   load_env()
