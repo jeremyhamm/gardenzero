@@ -19,7 +19,7 @@ def callback(channel):
 
 # Set our GPIO numbering to BCM
 GPIO.setmode(GPIO.BCM)
-channel = 21
+channel = 11
 GPIO.setup(channel, GPIO.IN)
 
 # This line tells our script to keep an eye on our gpio pin and let us know when the pin goes HIGH or LOW
