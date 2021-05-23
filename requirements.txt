@@ -5,4 +5,4 @@ glob
 dotenv
 mqtt
 pi-ina219
-
+RPi.GPIO

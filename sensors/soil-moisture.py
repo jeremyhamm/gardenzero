@@ -11,24 +11,24 @@ sys.path.append(os.path.abspath('../services'))
 import mqtt
 import RPi.GPIO as GPIO
  
-#GPIO SETUP
-channel = 21
+def callback(channel):  
+	if GPIO.input(channel):
+		print("Need Water")
+	else:
+		print("I am watered!")
+
+# Set our GPIO numbering to BCM
 GPIO.setmode(GPIO.BCM)
+channel = 21
 GPIO.setup(channel, GPIO.IN)
- 
-def callback(channel):
-  
-  print("here")
-  
-  if GPIO.input(channel):
-    print("No Water Detected!")
-  else:
-    print("Water Detected!")
- 
-GPIO.add_event_detect(channel, GPIO.BOTH, bouncetime=300)  # let us know when the pin goes HIGH or LOW
-GPIO.add_event_callback(channel, callback)  # assign function to GPIO PIN, Run function on change
- 
-# infinite loop
+
+# This line tells our script to keep an eye on our gpio pin and let us know when the pin goes HIGH or LOW
+GPIO.add_event_detect(channel, GPIO.BOTH, bouncetime=300)
+# This line asigns a function to the GPIO pin so that when the above line tells us there is a change on the pin, run this function
+GPIO.add_event_callback(channel, callback)
+
+# This is an infinte loop to keep our script running
 while True:
-  time.sleep(1)
+	# This line simply tells our script to wait 0.1 of a second, this is so the script doesnt hog all of the CPU
+	time.sleep(1)
 
