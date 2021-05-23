@@ -22,7 +22,7 @@ def get_connection():
   host = os.environ.get("MQTT_BROKER_HOST")
   
   client = get_client()
-  client.on_connect=on_connect
+  client.on_connect=onconnect
   client.username_pw_set(username, password)
   client.connect(host)
 
