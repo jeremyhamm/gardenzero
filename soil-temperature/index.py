@@ -8,6 +8,7 @@ import mqtt
 
 class DS18B20(object):
   def __init__(self):        
+    self.client = mqtt.get_connection()
     self.device_file = glob.glob("/sys/bus/w1/devices/28*")[0] + "/w1_slave"
       
   def read_temp_raw(self):
@@ -20,9 +21,6 @@ class DS18B20(object):
     return lines[0].strip()[-3:] == "YES"
       
   def read_temp(self):
-    
-    mqtt.get_connection()
-    
     temp_c = -255
     attempts = 0
     
@@ -42,6 +40,8 @@ class DS18B20(object):
         temp_string = temp_line[equal_pos+2:]
         temp_c = float(temp_string)/1000.0
         temp_f = round((temp_c * 1.8) + 32, 1)
+
+        self.client.publish("garden/soil-temperature", temp_f)
     
     return temp_f
 
