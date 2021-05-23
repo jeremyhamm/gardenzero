@@ -1,7 +1,5 @@
-#!/usr/bin/python3
-
 """
-
+Measure soil temperature with the DS18B20 sensor
 https://projects.raspberrypi.org/en/projects/build-your-own-weather-station/2
 """
 
@@ -9,6 +7,7 @@ import sys
 import os
 import glob
 import time
+from dotenv import load_dotenv
 sys.path.append(os.path.abspath('../services'))
 import mqtt
 
@@ -55,4 +54,5 @@ if __name__ == "__main__":
   obj = DS18B20()
   while True:
     print("Temp: %s F" % obj.read_temp())
-    time.sleep(300)
+    interval = os.environ.get("INTERVAL_SECONDS")
+    time.sleep(interval)
