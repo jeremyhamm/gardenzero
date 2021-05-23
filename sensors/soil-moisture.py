@@ -17,6 +17,9 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(channel, GPIO.IN)
  
 def callback(channel):
+  
+  print("here")
+  
   if GPIO.input(channel):
     print("No Water Detected!")
   else:
