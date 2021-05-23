@@ -54,5 +54,5 @@ if __name__ == "__main__":
   obj = DS18B20()
   while True:
     print("Temp: %s F" % obj.read_temp())
-    interval = os.environ.get("INTERVAL_SECONDS")
+    interval = int(os.environ.get("INTERVAL_SECONDS"))
     time.sleep(interval)
