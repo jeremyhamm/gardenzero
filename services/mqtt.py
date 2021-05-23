@@ -11,7 +11,7 @@ def get_client():
 
 def on_connect(client, userdata, flags, rc):
   if rc==0:
-    print("connected OK")
+    print("Good connection")
   else:
     print("Bad connection")
 
@@ -27,6 +27,6 @@ def get_connection():
   client.username_pw_set(username, password)
   client.connect(host)
   client.loop_start()
-  time.sleep(4)
+  time.sleep(1)
 
   return client
