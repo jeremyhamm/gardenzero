@@ -14,7 +14,7 @@ import RPi.GPIO as GPIO
 def callback(channel):
   if GPIO.input(channel):
     client.publish("garden/soil-moisture", True)
-	else:
+  else:
     client.publish("garden/soil-moisture", False)
 
 client = mqtt.get_connection()
@@ -26,5 +26,5 @@ GPIO.add_event_callback(channel, callback)
 
 
 while True:
-	time.sleep(1)
+  time.sleep(1)
 
