@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Sensors
 python3  /home/pi/apps/garden-zero/sensors/soil-temperature.py &
