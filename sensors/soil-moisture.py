@@ -23,7 +23,6 @@ def callback(channel):
 
 # MQTT
 client = mqtt.get_connection()
-client.publish("garden/soil-moisture", True) # Set initial mode to watered
 
 #GPIO SETUP
 channel = int(os.environ.get("SOIL_MOISTURE_GPIO"))
