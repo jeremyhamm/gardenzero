@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Sensors
 python3 ./sensors/soil-temperature.py &
