@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Sensors
-python3 ./sensors/soil-temperature.py &
-python3 ./sensors/soil-moisture.py &
+python3  /home/pi/apps/garden-zero/sensors/soil-temperature.py &
+python3  /home/pi/apps/garden-zero/sensors/soil-moisture.py &
 
 # Metrics
-python3 ./metrics/heartbeat.py
+python3  /home/pi/apps/garden-zero/metrics/heartbeat.py
