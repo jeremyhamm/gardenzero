@@ -12,5 +12,5 @@ import mqtt
 client = mqtt.get_connection()
 interval = int(os.environ.get("INTERVAL_SECONDS"))
 while True:
-  client.publish("garden/heartbeat", True)
+  client.publish("garden/heartbeat", "Powered")
   time.sleep(interval)
