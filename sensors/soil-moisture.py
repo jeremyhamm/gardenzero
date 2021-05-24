@@ -16,10 +16,10 @@ import mqtt
 def callback(channel):
   if GPIO.input(channel):
     print("LED off")
-    client.publish("garden/soil-moisture", False)
+    client.publish("garden/soil-moisture", {'need-water': True})
   else:
     print("LED on")
-    client.publish("garden/soil-moisture", True)
+    client.publish("garden/soil-moisture", {'need-water': False})
 
 # MQTT
 client = mqtt.get_connection()
