@@ -7,7 +7,7 @@ import sys
 import os
 import time
 from dotenv import load_dotenv
-sys.path.append(os.path.abspath('../services'))
+sys.path.append(os.path.abspath('./services'))
 import mqtt
 import RPi.GPIO as GPIO
 
