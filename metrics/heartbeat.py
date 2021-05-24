@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 Raspberry Pi Zero heartbeat 
 https://projects.raspberrypi.org/en/projects/build-your-own-weather-station/2

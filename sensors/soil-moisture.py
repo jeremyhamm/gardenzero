@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 """
 Measure soil moisture with the Kuman soil moisture sensor

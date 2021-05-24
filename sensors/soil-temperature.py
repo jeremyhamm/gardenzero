@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 Measure soil temperature with the DS18B20 sensor
 https://projects.raspberrypi.org/en/projects/build-your-own-weather-station/2
