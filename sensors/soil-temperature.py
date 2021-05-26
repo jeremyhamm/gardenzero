@@ -10,7 +10,7 @@ import os
 import glob
 import time
 from dotenv import load_dotenv
-sys.path.append(os.path.abspath('./services'))
+sys.path.append(os.path.abspath('../services'))
 import mqtt
 
 class DS18B20(object):
