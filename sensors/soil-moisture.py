@@ -10,7 +10,7 @@ import os
 import time
 import RPi.GPIO as GPIO
 from dotenv import load_dotenv
-sys.path.append(os.path.abspath('./services'))
+sys.path.append(os.path.abspath('/services'))
 import mqtt
 
 def callback(channel):
