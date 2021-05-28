@@ -2,7 +2,8 @@ sys
 os
 time
 glob
-dotenv    # https://pypi.org/project/python-dotenv/
-mqtt      # https://pypi.org/project/paho-mqtt/
-pi-ina219 # https://pypi.org/project/pi-ina219/
-RPi.GPIO  # https://pypi.org/project/RPi.GPIO/
+dotenv           # https://pypi.org/project/python-dotenv/
+mqtt             # https://pypi.org/project/paho-mqtt/
+pi-ina219        # https://pypi.org/project/pi-ina219/
+RPi.GPIO         # https://pypi.org/project/RPi.GPIO/
+python3-picamera # https://picamera.readthedocs.io/en/release-1.13
