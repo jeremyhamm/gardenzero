@@ -2,7 +2,7 @@
 
 """
 Measure soil moisture with the Kuman soil moisture sensor
-https://www.amazon.com/gp/product/B071F4RDHY/ref=as_li_ss_tl?ie=UTF8&linkCode=sl1&tag=piddlerinther-20&linkId=77f1c0f9c67c51d76b687628afa62ce1&language=en_US
+https://www.instructables.com/Soil-Moisture-Sensor-Raspberry-Pi/
 """
 
 import sys
