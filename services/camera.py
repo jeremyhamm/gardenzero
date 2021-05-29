@@ -5,8 +5,12 @@ Camera functionality for Garden Zero
 https://picamera.readthedocs.io
 """
 
+from time import sleep
 from picamera import PiCamera
 
 camera = PiCamera()
 camera.resolution = (1024, 768)
-camera.start_preview()
+
+sleep(2)
+my_file = open('/home/pi/apps/test.jpg', 'wb')
+camera.capture(my_file)
