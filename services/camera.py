@@ -13,4 +13,4 @@ camera.resolution = (1024, 768)
 
 sleep(2)
 my_file = open('/dev/sda1/test.jpg', 'wb')
-camera.capture(my_file)
+camera.capture('/dev/sda1/test.jpg')
