@@ -12,5 +12,5 @@ camera = PiCamera()
 camera.resolution = (1024, 768)
 
 sleep(2)
-my_file = open('/home/pi/apps/backup/test.jpg', 'wb')
+my_file = open('/dev/sda1/test.jpg', 'wb')
 camera.capture(my_file)
