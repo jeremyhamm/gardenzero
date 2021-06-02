@@ -28,7 +28,7 @@ def formatTemperature(temp):
   return (temp * 1.8) + 32
 
 def formatHumidity(humidity):
-  return humidity
+  return humidity + '%';
 
 try:
   while True:
@@ -38,7 +38,7 @@ try:
       humidity = formatHumidity(result.humidity)
       interval = int(os.environ.get("INTERVAL_SECONDS"))
 
-      client.publish("garden/environment", f"temp: {temp}, humidity: {humidity}")
+      client.publish("garden/environment", f"Temperature: {temp}\n Humidity: {humidity}")
 
       time.sleep(interval)
 
