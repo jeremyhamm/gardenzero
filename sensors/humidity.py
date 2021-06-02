@@ -1,20 +1,25 @@
+#!/usr/bin/python3
+
+"""
+Measure humidity with the DHT11 sensor
+https://www.circuitbasics.com/how-to-set-up-the-dht11-humidity-sensor-on-the-raspberry-pi/
+"""
+
 import RPi.GPIO as GPIO
 import time
-
-def bin2dec(string_num):
-  return str(int(string_num, 2))
 
 data = []
 
 GPIO.setmode(GPIO.BCM)
-
 GPIO.setup(21,GPIO.OUT)
 GPIO.output(21,GPIO.HIGH)
 time.sleep(0.025)
 GPIO.output(21,GPIO.LOW)
 time.sleep(0.02)
-
 GPIO.setup(21, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
+def bin2dec(string_num):
+  return str(int(string_num, 2))
 
 for i in range(0,500):
   data.append(GPIO.input(4))
@@ -57,7 +62,7 @@ try:
 				TemperatureBit = TemperatureBit + "0"
 
 except:
-	print "ERR_RANGE"
+	print("ERR_RANGE")
 	exit(0)
 
 
@@ -78,16 +83,16 @@ try:
 		else:
 			crc = crc + "0"
 except:
-	print "ERR_RANGE"
+	print("ERR_RANGE")
 	exit(0)
-
 
 Humidity = bin2dec(HumidityBit)
 Temperature = bin2dec(TemperatureBit)
 
 if int(Humidity) + int(Temperature) - int(bin2dec(crc)) == 0:
-	print Humidity
-	print Temperature
+	print(Humidity)
+	print(Temperature)
+	
 else:
-	print "ERR_CRC"
+	print("ERR_CRC")
 
