@@ -28,7 +28,7 @@ def formatTemperature(temp):
   return (temp * 1.8) + 32
 
 def formatHumidity(humidity):
-  return humidity + '%';
+  return str(humidity) + '%';
 
 try:
   while True:
