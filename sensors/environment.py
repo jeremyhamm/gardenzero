@@ -25,10 +25,10 @@ result = instance.read()
 client = mqtt.get_connection()
 
 def formatTemperature(temp):
-  return (temp * 1.8) + 32
+  return round((temp * 1.8) + 32, 2)
 
 def formatHumidity(humidity):
-  return str(humidity) + '%';
+  return str(round(humidity, 2)) + '%';
 
 try:
   while True:
