@@ -4,7 +4,8 @@
 Measure humidity with the DHT11 sensor
 https://www.circuitbasics.com/how-to-set-up-the-dht11-humidity-sensor-on-the-raspberry-pi/
 """
-
+import sys
+import os
 import RPi.GPIO as GPIO
 import dht11
 import time
