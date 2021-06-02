@@ -23,7 +23,7 @@ try:
   while True:
     result = instance.read()
     if result.is_valid():
-      print("Last valid input: %-3.1f" % str(datetime.datetime.now()))
+      print("Last valid input: " + str(datetime.datetime.now()))
       print("Temperature: %-3.1f C" % result.temperature)
       print("Humidity: %-3.1f %%" % result.humidity)
       time.sleep(6)
