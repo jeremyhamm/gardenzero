@@ -11,7 +11,7 @@ import dht11
 import time
 import datetime
 from dotenv import load_dotenv
-sys.path.append(os.path.abspath('../services'))
+sys.path.append(os.path.abspath('./services'))
 import mqtt
 
 # initialize GPIO
