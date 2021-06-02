@@ -15,7 +15,7 @@ sys.path.append(os.path.abspath('./services'))
 import mqtt
 
 # initialize GPIO
-GPIO.setwarnings(True)
+GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.cleanup()
 
