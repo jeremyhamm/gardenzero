@@ -25,7 +25,7 @@ result = instance.read()
 client = mqtt.get_connection()
 
 def formatTemperature(temp):
-  return round((temp * 1.8) + 32, 2)
+  return str(round((temp * 1.8) + 32, 2)) + '°F'
 
 def formatHumidity(humidity):
   return str(round(humidity, 2)) + '%';
@@ -38,8 +38,8 @@ try:
       humidity = formatHumidity(result.humidity)
       interval = int(os.environ.get("INTERVAL_SECONDS"))
 
-      client.publish("garden/temperature", f"Temperature: {temp}")
-      client.publish("garden/humidity", f"Humidity: {humidity}")
+      client.publish("garden/temperature", temp)
+      client.publish("garden/humidity", humidity)
 
       time.sleep(interval)
 
