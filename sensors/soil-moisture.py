@@ -11,7 +11,7 @@ import time
 import board
 from adafruit_seesaw.seesaw import Seesaw
 from dotenv import load_dotenv
-sys.path.append(os.path.abspath('../services'))
+sys.path.append(os.path.abspath('./services'))
 import mqtt
 
 i2c_bus = board.I2C()
@@ -27,7 +27,7 @@ while True:
     # read temperature from the temperature sensor
     temp = ss.get_temp()
 
-    print("temp: " + str(temp) + "  moisture: " + str(touch))
-
     client.publish("garden/soil-moisture", str(touch))
-    time.sleep(1)
+
+    interval = int(os.environ.get("INTERVAL_SECONDS"))
+    time.sleep(interval)
