@@ -1,36 +1,33 @@
 #!/usr/bin/python3
 
 """
-Measure soil moisture with the Kuman soil moisture sensor
-https://www.instructables.com/Soil-Moisture-Sensor-Raspberry-Pi/
+Measure soil moisture with the Adafruit stemma soil sensor i2c
+https://learn.adafruit.com/adafruit-stemma-soil-sensor-i2c-capacitive-moisture-sensor/
 """
 
 import sys
 import os
 import time
-import RPi.GPIO as GPIO
+import board
+from adafruit_seesaw.seesaw import Seesaw
 from dotenv import load_dotenv
-sys.path.append(os.path.abspath('./services'))
+sys.path.append(os.path.abspath('../services'))
 import mqtt
 
-def callback(channel):
-  if GPIO.input(channel):
-    #print("LED off")
-    client.publish("garden/soil-moisture", "Needs Water")
-  else:
-    #print("LED on")
-    client.publish("garden/soil-moisture", "Watered")
+i2c_bus = board.I2C()
+ss = Seesaw(i2c_bus, addr=0x36)
 
 # MQTT
 client = mqtt.get_connection()
 
-#GPIO SETUP
-channel = int(os.environ.get("SOIL_MOISTURE_GPIO"))
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(channel, GPIO.IN)
-GPIO.add_event_detect(channel, GPIO.BOTH, bouncetime=300)
-GPIO.add_event_callback(channel, callback)
-
-
 while True:
-  time.sleep(1)
+    # read moisture level through capacitive touch pad
+    touch = ss.moisture_read()
+
+    # read temperature from the temperature sensor
+    temp = ss.get_temp()
+
+    print("temp: " + str(temp) + "  moisture: " + str(touch))
+
+    client.publish("garden/soil-moisture", str(touch))
+    time.sleep(1)
