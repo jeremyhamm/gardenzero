@@ -31,19 +31,16 @@ def formatTemperature(temp):
 def formatHumidity(humidity):
   return str(round(humidity, 1)) + '%';
 
-try:
-  while True:
-    result = instance.read()
-    if result.is_valid():
-      temp = formatTemperature(result.temperature)
-      humidity = formatHumidity(result.humidity)
-      interval = int(os.environ.get("INTERVAL_SECONDS"))
 
-      client.publish("garden/temperature", temp)
-      client.publish("garden/humidity", humidity)
+while True:
+  result = instance.read()
+  if result.is_valid():
+    temp = formatTemperature(result.temperature)
+    humidity = formatHumidity(result.humidity)
+    interval = int(os.environ.get("INTERVAL_SECONDS"))
 
-      time.sleep(interval)
+    client.publish("garden/equipment/temperature", temp)
+    client.publish("garden/equipment/humidity", humidity)
 
-except KeyboardInterrupt:
-  GPIO.cleanup()
+    time.sleep(interval)
 
