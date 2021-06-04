@@ -15,18 +15,19 @@ sys.path.append(os.path.abspath('./services'))
 import mqtt
 
 i2c_bus = board.I2C()
-ss = Seesaw(i2c_bus, addr=0x36)
+sensor = Seesaw(i2c_bus, addr=0x36)
 
 # MQTT
 client = mqtt.get_connection()
 
 while True:
     # read moisture level through capacitive touch pad
-    touch = ss.moisture_read()
+    touch = sensor.moisture_read()
 
     # read temperature from the temperature sensor
-    temp = ss.get_temp()
+    temp = sensor.get_temp()
 
+    # Publish to MQTT
     client.publish("garden/soil-moisture", str(touch))
 
     interval = int(os.environ.get("INTERVAL_SECONDS"))
