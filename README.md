@@ -1,8 +1,6 @@
 # Garden Zero
 Manage your garden with the Raspberry Pi Zero
 
----
-
 ## Sensors
 
 The following sensors are available 
@@ -11,8 +9,6 @@ The following sensors are available
 * Soil Temperature
 * Air Temperature
 * Humidity
-
----
 
 ## Metrics
 
