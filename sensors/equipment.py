@@ -13,7 +13,7 @@ import time
 import datetime
 from dotenv import load_dotenv
 #sys.path.append(os.path.abspath('./services'))
-from services.mqtt import get_connection
+from gardenzero.services.mqtt import get_connection
 
 # initialize GPIO
 GPIO.setwarnings(False)
