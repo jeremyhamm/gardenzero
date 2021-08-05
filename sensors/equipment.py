@@ -12,8 +12,8 @@ import dht11
 import time
 import datetime
 from dotenv import load_dotenv
-sys.path.append(os.path.abspath('./services'))
-#import services.mqtt
+#sys.path.append(os.path.abspath('./services'))
+import services
 
 # initialize GPIO
 GPIO.setwarnings(False)
@@ -23,7 +23,7 @@ GPIO.cleanup()
 # read data using pin 21
 instance = dht11.DHT11(pin = 21)
 result = instance.read()
-client = mqtt.get_connection()
+client = services.get_connection()
 
 def formatTemperature(temp):
   return str(round((temp * 1.8) + 32, 1)) + '°F'
